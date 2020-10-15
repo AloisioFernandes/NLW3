@@ -1,65 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps'
 
-import mapMarker from './src/images/map-marker.png'
+import { useFonts } from 'expo-font'
+import { Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold } from '@expo-google-fonts/nunito'
+
+import Routes from './src/routes'
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Nunito_600SemiBold,
+    Nunito_700Bold,
+    Nunito_800ExtraBold
+  })
+
+  if(!fontsLoaded) {
+    return null
+  }
+
   return (
-    <View style={styles.container}>
-      <MapView
-        provider={PROVIDER_GOOGLE}
-        style={styles.map}
-        initialRegion={{
-          latitude: -13.253305,
-          longitude: -43.408363,
-          latitudeDelta: 0.008,
-          longitudeDelta: 0.008
-        }}
-      >
-        <Marker
-          icon={mapMarker}
-          calloutAnchor={{
-            x: 2.7,
-            y: 0.8
-          }}
-          coordinate={{
-            latitude: -13.253305,
-            longitude: -43.408363
-          }}
-        >
-          <Callout tooltip onPress={() => { alert('eae')}}>
-            <View style={styles.calloutContainer}>
-              <Text style={styles.calloutText}>Lar das meninas</Text>
-            </View>
-          </Callout>
-        </Marker>
-      </MapView>
-    </View>
+    <Routes />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-
-  map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height
-  },
-
-  calloutContainer: {
-    width: 168,
-    height: 46,
-    paddingHorizontal: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    borderRadius: 16,
-    justifyContent: 'center'
-  },
-
-  calloutText: {
-    color: '#0089a5',
-    fontSize: 14
-  }
-});
