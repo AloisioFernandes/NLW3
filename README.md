@@ -29,11 +29,11 @@
  - Cadastro e listagem de orfanatos.
 
 # Principais Tecnologias
- - Node.js
- - ReactJS
- - React Native
- - Expo
- - SQLite 
- - Yup
- - Cors
- - ORM (Object-Relational Mapping)
+ - [Node.js](https://nodejs.org/en/)
+ - [ReactJS](https://reactjs.org/)
+ - [React Native](https://reactnative.dev/)
+ - [Expo](https://docs.expo.io/)
+ - [SQLite ](https://www.sqlite.org/index.html)
+ - [Yup](https://github.com/jquense/yup)
+ - [Cors](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+ - [ORM (Object-Relational Mapping)](https://typeorm.io/#/)
